@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-trader-product-management-deployment
+  namespace: app
+  labels:
+    app: auto-trader-product-management-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auto-trader-product-management-deployment
+  template:
+    metadata:
+      labels:
+        app: auto-trader-product-management-deployment
+    spec:
+      containers:
+      - name: auto-trader-product-management-deployment
+        image: senath1999/auto-trader-product-management
+        ports:
+        - containerPort: 8080

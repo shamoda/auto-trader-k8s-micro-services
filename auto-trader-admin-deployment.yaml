@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-trader-admin-deployment
+  namespace: app
+  labels:
+    app: auto-trader-admin-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auto-trader-admin-deployment
+  template:
+    metadata:
+      labels:
+        app: auto-trader-admin-deployment
+    spec:
+      containers:
+      - name: auto-trader-admin-deployment
+        image: shamoda/auto-trader-admin
+        ports:
+        - containerPort: 8080

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auto-trader-payment-deployment
+  namespace: app
+  labels:
+    app: auto-trader-payment-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auto-trader-payment-deployment
+  template:
+    metadata:
+      labels:
+        app: auto-trader-payment-deployment
+    spec:
+      containers:
+      - name: auto-trader-payment-deployment
+        image: sachindug/auto-trader-payment
+        ports:
+        - containerPort: 8080
